@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+
 import { Sequelize } from 'sequelize-typescript';
 import { Users } from '../entity/users.entity';
 

@@ -11,7 +11,7 @@ export class Users extends Model<Users> {
         primaryKey: true,
         unique: true
     })
-    idUser: number;
+    id: number;
 
     @Column
     first_name: string;
