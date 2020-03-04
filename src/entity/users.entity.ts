@@ -1,5 +1,4 @@
 import { Model, Table, Column, TableOptions, DataType } from 'sequelize-typescript';
-import { DataType, DataType } from 'sequelize/types';
 
 // Tabel options config
 const tableOption: TableOptions = { timestamps: true }; 
