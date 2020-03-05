@@ -8,8 +8,8 @@ export class CreateUsersDto {
     @IsString()
     readonly last_name: string;
 
-    @IsNumber()
-    readonly phone: number;
+    @IsString()
+    readonly phone: string;
 
     @IsEmail()
     readonly email: string;
