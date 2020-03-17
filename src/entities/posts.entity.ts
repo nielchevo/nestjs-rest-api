@@ -11,4 +11,8 @@ export class Posts {
 
     @Column()
     body: string;
+
+    // @ManyToOne(()=>Users, user => user.posts)
+    // @JoinTable()
+    // user: Users
 }

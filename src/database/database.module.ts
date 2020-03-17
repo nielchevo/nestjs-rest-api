@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
-import { Users } from 'src/entities/users.entity';
+import { UserTable } from 'src/entities/users.entity';
 import { Posts } from 'src/entities/posts.entity';
 
 const dbconfig:TypeOrmModuleOptions = {
@@ -11,7 +11,7 @@ const dbconfig:TypeOrmModuleOptions = {
     port: 5432,
     username: 'root',
     password: 'Password',
-    entities: [Users, Posts],
+    entities: [UserTable, Posts],
     synchronize: true,
     logging: ['error', 'log' ,'query', 'schema'],
     namingStrategy: new SnakeNamingStrategy(),

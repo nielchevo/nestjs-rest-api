@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule, TypeOrmModuleOptions  } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
-import { Users } from './entities/users.entity';
+import { UserTable } from './entities/users.entity';
+import { Posts } from './entities/posts.entity';
 
 const dbconfig:TypeOrmModuleOptions = {
   type: 'postgres',
@@ -11,8 +12,7 @@ const dbconfig:TypeOrmModuleOptions = {
   port: 5432,
   username: 'root',
   password: 'Password',
-  entities: [Users],
-  synchronize: true,
+  entities: [UserTable, Posts],
   logging: ['error', 'log' ,'query', 'schema'],
   namingStrategy: new SnakeNamingStrategy(),
 };
