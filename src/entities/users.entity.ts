@@ -1,8 +1,9 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { Posts } from "./posts.entity";
+import { PostEntity } from ".";
+
 
 @Entity({name: 'users'})
-export class UserTable {
+class UserTable {
     
     @PrimaryGeneratedColumn()
     userId: number;
@@ -17,5 +18,7 @@ export class UserTable {
     refPostId: number;
 
     // @OneToMany(()=> Posts, posts => posts.user)
-    posts: Posts
+    posts: PostEntity
 }
+
+export default UserTable

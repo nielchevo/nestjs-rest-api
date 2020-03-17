@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-@Entity()
-export class Posts {
+@Entity({name: "posts"})
+class Posts {
     
     @PrimaryGeneratedColumn()
     postId: number;
@@ -16,3 +16,5 @@ export class Posts {
     // @JoinTable()
     // user: Users
 }
+
+export default Posts

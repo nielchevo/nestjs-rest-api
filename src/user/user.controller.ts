@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Req } from '@nestjs/common';
-import { UserTable } from 'src/entities/users.entity';
+
 import { UserService } from './user.service';
+import { UserEntity } from 'src/entities';
 
 @Controller('user')
 export class UserController {
@@ -8,7 +9,7 @@ export class UserController {
     constructor(private readonly userService: UserService) {}
 
     @Get(':id')
-    async GetUserByID(@Param('id') id: number):Promise<UserTable> {
+    async GetUserByID(@Param('id') id: number):Promise<UserEntity> {
         console.info(`param request - ${id}`);
         
         return await this.userService.GetUserByID(id);
