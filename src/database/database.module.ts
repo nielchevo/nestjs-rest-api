@@ -1,17 +1,23 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
+import { Users } from 'src/entities/users.entity';
+import { Posts } from 'src/entities/posts.entity';
+
+const dbconfig:TypeOrmModuleOptions = {
+    type: 'postgres',
+    database: 'epos_merchant',
+    host: '127.0.0.1',
+    port: 5432,
+    username: 'root',
+    password: 'Password',
+    entities: [Users, Posts],
+    synchronize: true,
+    logging: ['error', 'log' ,'query', 'schema'],
+    namingStrategy: new SnakeNamingStrategy(),
+};
 
 @Module({
-    imports: [TypeOrmModule.forRoot({
-        type: 'postgres',
-        database: 'epos_merchant',
-        host: '127.0.0.1',
-        port: 5432,
-        username: 'root',
-        password: 'Password',
-        entities: [],
-        synchronize: true,
-        logging: 'all',
-    })]
+    imports: [TypeOrmModule.forRoot(dbconfig)],
 })
 export class DatabaseModule {}
