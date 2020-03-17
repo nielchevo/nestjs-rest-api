@@ -15,13 +15,15 @@ export class UserService {
         //     where: { userId: id },
         //     relations: ['posts'],
         // })
+
         const result = await this.userRepository
             .createQueryBuilder('x')
             .leftJoinAndMapOne("x.posts", "posts", "y", "x.ref_post_id=y.post_id")
             .getOne()
 
-        console.log(`${JSON.stringify(result)}`);
+        console.info(`${JSON.stringify(result)}`);
+        console.info(result);
         
-        return null;
+        return result;
     }
 }

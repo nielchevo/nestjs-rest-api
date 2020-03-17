@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule, TypeOrmModuleOptions  } from '@nestjs/typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies'
-
 import { UserEntity, PostEntity } from './entities';
+import { GraphqlModule } from './graphql/graphql.module';
 
 const dbconfig:TypeOrmModuleOptions = {
   type: 'postgres',
@@ -18,7 +18,7 @@ const dbconfig:TypeOrmModuleOptions = {
 };
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dbconfig), UserModule],
+  imports: [TypeOrmModule.forRoot(dbconfig), UserModule, GraphqlModule],
   controllers: [],
   providers: [],
 })

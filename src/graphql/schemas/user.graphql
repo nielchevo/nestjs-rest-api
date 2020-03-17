@@ -1,0 +1,17 @@
+type Query {
+    GetUserByID(id: Int): Users
+}
+
+type Users {
+    userId: Int!
+    firstName: String
+    email: String
+    refPostId: Int
+    post: [Posts]
+}
+
+type Posts { 
+    postId: Int!
+    title: String
+    body: String
+}
