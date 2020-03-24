@@ -6,10 +6,13 @@ import { PostEntity } from ".";
 class UserTable {
     
     @PrimaryGeneratedColumn()
-    userId: number;
+    id: number;
 
     @Column()
     firstName: string;
+
+    @Column()
+    username: string;
 
     @Column()
     email: string
@@ -18,7 +21,7 @@ class UserTable {
     refPostId: number;
 
     // @OneToMany(()=> Posts, posts => posts.user)
-    posts: PostEntity
+    // posts: PostEntity
 }
 
 export default UserTable

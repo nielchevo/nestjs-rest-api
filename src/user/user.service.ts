@@ -26,4 +26,26 @@ export class UserService {
         
         return result;
     }
+
+    async createNewUsers(username: string, email: string): Promise<UserEntity>
+    {
+        try {
+            console.log(username);
+            console.log(email);
+            
+            const model = this.userRepository.create({
+                id: 1,
+                username: 'tests',
+                email: 'emailtest'
+            });
+            console.log(model);
+    
+            const result = await this.userRepository.save(model);
+            console.log(result);
+    
+            return result;
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
 }

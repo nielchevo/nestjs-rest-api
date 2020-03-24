@@ -6,6 +6,10 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export abstract class IMutation {
+    abstract createNewUser(firstname?: string, email?: string): Users | Promise<Users>;
+}
+
 export class Posts {
     postId: number;
     title?: string;
@@ -17,7 +21,7 @@ export abstract class IQuery {
 }
 
 export class Users {
-    userId: number;
+    id: number;
     firstName?: string;
     email?: string;
     refPostId?: number;

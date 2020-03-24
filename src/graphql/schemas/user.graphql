@@ -2,8 +2,12 @@ type Query {
     GetUserByID(id: Int): Users
 }
 
+type Mutation {
+    createNewUser(firstname: String, email: String): Users
+}
+
 type Users {
-    userId: Int!
+    id: Int!
     firstName: String
     email: String
     refPostId: Int
